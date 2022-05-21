@@ -11,7 +11,7 @@ export class Event {
         this.once = once;
     }
 
-    execute(client = this.client, ...params: any[]) {
+    execute(...params: any[]) {
         throw new Error("You must implement this method.");
     }
 
