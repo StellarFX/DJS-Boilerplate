@@ -68,7 +68,7 @@ export default class extends Event {
         // The bot's instance ; the name of the event ; if the event should be executed only once
     }
 
-    async execute(client: Client): Promise<void> {
+    async execute(/* Your event's params*/, client = this.client): Promise<void> {
         
         // Your code here...
 
