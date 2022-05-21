@@ -7,7 +7,7 @@ It was created by me, myself and I in order to keep a clean structure for my pro
 
 - Handles slash commands
 - Handles events
-- Database system using sequelize & sqlite
+- Database system using [sequelize](https://www.npmjs.com/package/sequelize) & [sqlite](https://www.npmjs.com/package/sqlite)
 
 ## Supports
 
@@ -19,7 +19,7 @@ TypeScript also supports JavaScript natively, so no trouble if you don't know Ty
 Just clone the repository in your environment using the command below.
 
 ```bash
-git clone https://github.com/StellarFX/discordjs-boilerplate.git
+git clone https://github.com/StellarFX/djs-boilerplate.git
 ```
 
 ## Usage/Examples
@@ -41,11 +41,35 @@ export default class extends Command {
         .setDescription("Checks the ping of the bot")
         .setDefaultPermission(true)
         super(client, struct, false);
+        // Respectively :
+        // The bot's instance ; the structure of the command ; if the command is available by default (For eventual permissions purposes)
     }
 
     execute(interaction: CommandInteraction, client = this.client): void {
         
         interaction.reply("Ping !")
+        // Your code here...
+
+    }
+
+}
+```
+
+### Creating an event
+
+Creating an event is almost the same structure as a command.
+
+```typescript
+export default class extends Event {
+
+    constructor(client: Client) {
+        super(client, "foo", false);
+        // Respectively :
+        // The bot's instance ; the name of the event ; if the event should be executed only once
+    }
+
+    async execute(client: Client): Promise<void> {
+        
         // Your code here...
 
     }
